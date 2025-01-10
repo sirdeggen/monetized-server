@@ -15,3 +15,12 @@ npm run dev
 ```
 
 Server listens on port 3000, app is at 8090.
+
+## Environment Variables
+
+You need an .env file in the backend directory which looks like this:
+
+```# ./backend/.env
+WEATHER_KEY='12341234123412341234423141232431'
+PRIVATE_KEY='L1xw4koJ4eThCRPBwbj7p7ZsQYkk8jjP2KWvr3YwPm4hTYJfopZF'
+```

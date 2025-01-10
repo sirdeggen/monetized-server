@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const key = PrivateKey.fromRandom()
   const wallet = new ProtoWallet(key)
   const authFetch = new AuthFetch(wallet)
-  const boundFetch = authFetch.fetch.bind(window)
+  authFetch.fetch = window.fetch.bind(window)
   
 
   const handleCreateSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
@@ -22,7 +22,7 @@ const App: React.FC = () => {
       const city = e.currentTarget.city.value
       setCity(city)
       // make the authorized fetch request to the backend
-      const response = await (await boundFetch('http://localhost:3000/weather/' + city)).json()
+      const response = await (await authFetch.fetch('http://localhost:3000/weather/' + city)).json()
       setWeather(response)
     } catch (error) {
       console.error(error)
@@ -39,7 +39,7 @@ const App: React.FC = () => {
       <form onSubmit={handleCreateSubmit}>
         <label htmlFor="city">City:</label>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input type="text" id="city" name="city" className="city-input" style={{ marginRight: '10px' }} />
+          <input placeholder="Austin" type="text" id="city" name="city" className="city-input" style={{ marginRight: '10px' }} />
           <button type="submit" disabled={createLoading}>
             Get Weather
           </button>

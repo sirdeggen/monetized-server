@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import { createAuthMiddleware } from '@bsv/auth-express-middleware'
 import { createPaymentMiddleware } from '@bsv/payment-express-middleware'
 import { ProtoWallet, PrivateKey } from '@bsv/sdk'
+import cors from 'cors'
 dotenv.config()
 
 const { WEATHER_KEY, PRIVATE_KEY } = process.env
@@ -27,6 +28,7 @@ const app = express()
 const port = 3000
 
 app.use(express.json())
+app.use(cors())
 
 app.use(auth)
 // app.use(monetization)

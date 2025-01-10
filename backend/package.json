@@ -1,0 +1,26 @@
+{
+    "name": "monetized-server",
+    "version": "1.0.0",
+    "description": "A TypeScript Express server",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "build": "tsc",
+        "dev": "ts-node-dev src/index.ts"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@bsv/auth-express-middleware": "^1.0.1",
+        "@bsv/payment-express-middleware": "^1.0.1",
+        "@bsv/sdk": "^1.2.21",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.0",
+        "ts-node": "^10.9.2",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.7.2"
+    }
+}

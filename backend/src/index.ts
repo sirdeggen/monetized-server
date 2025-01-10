@@ -18,7 +18,7 @@ const auth = createAuthMiddleware({ wallet })
 const monetization = createPaymentMiddleware({ 
   wallet,
   calculateRequestPrice: async (req) => {
-    // e.g., 50 satoshis per request
+    // e.g., 1 satoshis per request
     return 1
   }
 })
@@ -29,7 +29,7 @@ const port = 3000
 app.use(express.json())
 
 app.use(auth)
-app.use(monetization)
+// app.use(monetization)
 
 app.get('/weather/:city', async (req, res) => {
     try {

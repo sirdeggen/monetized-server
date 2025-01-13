@@ -11,7 +11,6 @@ const App: React.FC = () => {
   const key = PrivateKey.fromRandom()
   const wallet = new ProtoWallet(key)
   const authFetch = new AuthFetch(wallet)
-  authFetch.fetch = window.fetch.bind(window)
   
 
   const handleCreateSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
